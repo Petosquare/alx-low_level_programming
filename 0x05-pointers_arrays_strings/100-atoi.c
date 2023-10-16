@@ -8,18 +8,29 @@
  */
 int _atoi(char *str)
 {
-	int i, d, n, len, f, digit;
+	int c = 0;
+	unsigned int ni = 0;
+	int min = 1;
+	int isi = 0;
 
-	i = 0;
-	d = 0;
-	n = 0;
-	len = 0;
-	f = 0;
-	digit = 0;
-
-	while (str[len] != '\0')
-		len++;
-
-	while (i < len && f == 0)
+	while (str[c])
 	{
-
+	if (str[c] == 45)
+	{	
+	min *= -1;
+	}
+	while (str[c] >= 48 && str[c] <= 57)
+	{
+	isi = 1;
+	ni = (ni * 10) + (str[c] - '0');
+	c++;
+	}
+	if (isi == 1)
+	{
+	break;
+	}
+	c++;
+	}
+	ni *= min;
+	return (ni);
+}
